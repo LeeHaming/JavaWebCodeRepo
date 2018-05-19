@@ -1,0 +1,66 @@
+模态框//选中一行
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">1</button>
+      <!-- 模态框（Modal） -->
+	<div class="modal fade" style="margin-left:-400px;width:900px" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+        			</button>
+	                <h4 class="modal-title" id="myModalLabel" style="width:20%">2</h4>
+	            </div>      
+	            <div class="modal-body" style="margin-left:10px">
+	                <form>
+	                	3  <input id="command_content" type="text"  style="width:70%;margin-right:10px" placeholder="...."/><button class="button" type="button" style="width:10%;margin-bottom:10px">4</button>
+	           		 </form>
+	           		 <hr style="width:99%;align:center"/>
+	                	<h5>5</h5>
+	                	<table id="myTable" border="1" style="bordercolor:#aaa;width:98%;font-size:14px;color:#666" onclick="selectRow(this)">
+					    <thead>
+					    	<tr height="25px"><th bgcolor=#ccc align="left" style="font-size:14px">6</th></tr>
+					    </thead>
+					    <tbody id="requestsTable">
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>
+					    <tr height="25px" title="notDelete"><td>&nbsp;</td></tr>		    
+					    </tbody>
+					</table>
+					<div>
+						<button  type="button" class="button" style="width:9%;float:right;margin:5px 20px">7</button>                
+	            	</div>	
+            	</div>      
+       		</div>
+        </div>  
+	</div>
+
+<script>
+function selectRow(obj){
+	if(event.srcElement.tagName=="TD"){
+		curRow=event.srcElement.parentElement;
+		if(curRow.title=="notDelete"){
+			var myTable=document.getElementById("myTable");
+	    	var childNodes = myTable.getElementsByTagName("tr");
+	    	console.log( "childNodes:" + childNodes.length ); 
+	    	for (var i = 0; i < childNodes.length; i++) { 
+	    		console.log("childNodes[i].title:"+childNodes[i].title);
+	            if(childNodes[i].title=="toDelete"){
+	            	childNodes[i].style.background="white";
+	            	childNodes[i].title="notDelete";
+	            	break;
+	            }
+	        }
+			curRow.style.background="yellow";
+			curRow.title="toDelete";
+		}else{
+			curRow.style.background="white";
+			event.srcElement.title="notDelete";
+		}
+	}
+}
+</script>
