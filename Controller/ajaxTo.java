@@ -28,3 +28,6 @@ public String func(HttpServletRequest request) throws UnsupportedEncodingExcepti
 		res = net.sf.json.JSONObject.fromObject(mapp).toString();
         return res;
 	}
+
+//获取参数内容
+request.getParameterValues("namesArray");
